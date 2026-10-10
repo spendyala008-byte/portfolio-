@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pendyala Saikrishna | Data Science Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F7FA;--card:#fff;--ink:#14213D;--mute:#5B6678;--line:#E2E7EF;--acc:#0E9F8E;--acc2:#F5A524;--accsoft:#E3F6F3;
+--hf:'Space Grotesk','Segoe UI',sans-serif;--bf:'Inter','Segoe UI',sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1724;--card:#17223A;--ink:#EAF0FA;--mute:#9AA7BD;--line:#26344F;--accsoft:#12333A}}
+:root[data-theme="dark"]{--bg:#0F1724;--card:#17223A;--ink:#EAF0FA;--mute:#9AA7BD;--line:#26344F;--accsoft:#12333A}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--bf);overflow-x:hidden}
+h1,h2,h3{font-family:var(--hf);line-height:1.15}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--acc2);outline-offset:3px}
+.wrap{max-width:1100px;margin:auto;padding:0 22px}
+section{padding:92px 0}
+.sec-h{font-size:clamp(28px,4vw,40px);margin-bottom:10px}
+.sec-p{color:var(--mute);max-width:56ch;margin-bottom:40px}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:10;padding-top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:700 20px var(--hf)}.logo span{color:var(--acc)}
+.links{display:flex;gap:6px;align-items:center}
+.links a{padding:8px 12px;border-radius:8px;font-size:14px;font-weight:500;color:var(--mute);transition:.2s}
+.links a:hover,.links a.on{color:var(--ink);background:var(--accsoft)}
+.icon-btn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;width:38px;height:38px;cursor:pointer;font-size:16px}
+.burger{display:none}
+@media(max-width:860px){.burger{display:block}.links{position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--bg);padding:12px 22px 18px;border-bottom:1px solid var(--line);display:none}.links.open{display:flex}}
+/* buttons */
+.btn{display:inline-flex;gap:8px;align-items:center;padding:13px 24px;border-radius:12px;font-weight:600;font-size:15px;border:2px solid var(--acc);cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;font-family:var(--bf)}
+.btn.pri{background:var(--acc);color:#fff}.btn.pri:hover{transform:translateY(-3px);box-shadow:0 10px 22px -8px var(--acc)}
+.btn.sec{background:transparent;color:var(--ink)}.btn.sec:hover{background:var(--accsoft)}
+/* hero */
+#home{padding-top:140px;min-height:100vh;display:flex;align-items:center;position:relative}
+#home:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 30%,var(--accsoft),transparent 55%);z-index:-1}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.hi{color:var(--acc);font-weight:600;margin-bottom:10px}
+.hero h1{font-size:clamp(38px,6vw,64px);margin-bottom:14px}
+.role{font:500 clamp(18px,2.4vw,24px) var(--hf);color:var(--mute);min-height:1.5em;margin-bottom:18px}
+.role b{color:var(--acc)}.cur{display:inline-block;width:2px;height:1em;background:var(--acc);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(2) infinite}
+.hero p{color:var(--mute);max-width:52ch;margin-bottom:28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.photo-wrap{position:relative;width:min(320px,80%);margin:auto;aspect-ratio:1}
+.photo{position:absolute;inset:14px;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,var(--acc),#2B5FD9);border:6px solid var(--card);box-shadow:0 20px 50px -20px rgba(20,33,61,.5)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.ring{position:absolute;inset:0;border-radius:50%;border:2px dashed var(--acc);opacity:.5;animation:spin 24s linear infinite}
+.chip{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 12px;font:600 13px var(--bf);box-shadow:0 8px 20px -10px rgba(0,0,0,.3);animation:float 5s ease-in-out infinite}
+.chip.a{top:2%;left:-6%}.chip.b{top:44%;right:-10%;animation-delay:1.2s}.chip.c{bottom:2%;left:4%;animation-delay:2.4s}
+@media(max-width:860px){.hero{grid-template-columns:1fr;text-align:center}.hero p{margin-inline:auto}.cta{justify-content:center}.photo-wrap{order:-1;width:240px}.chip.a{left:-12%}.chip.b{right:-14%}}
+/* cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 36px -22px rgba(20,33,61,.45)}
+.grid{display:grid;gap:20px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.g3,.g2{grid-template-columns:1fr}}
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:28px}
+@media(max-width:800px){.about{grid-template-columns:1fr}}
+.about p+p{margin-top:14px}
+.stat{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}.stat:last-child{border:0}.stat span{color:var(--mute)}.stat b{text-align:right}
+/* skills */
+.skill+.skill{margin-top:20px}
+.skill-top{display:flex;justify-content:space-between;font-weight:600;margin-bottom:8px}
+.bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+/* timeline */
+.tl{border-left:3px solid var(--acc);padding-left:26px;position:relative}
+.tl:before{content:"";position:absolute;left:-10px;top:6px;width:17px;height:17px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 6px var(--accsoft);animation:pulse 2.4s infinite}
+.tag{display:inline-block;padding:4px 12px;border-radius:99px;background:var(--accsoft);color:var(--acc);font-size:13px;font-weight:600;margin:10px 6px 0 0}
+/* project */
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:20px 0}
+.step{padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);font-size:13px;font-weight:600;opacity:.35;animation:lit 6s infinite}
+.step:nth-child(3){animation-delay:1s}.step:nth-child(5){animation-delay:2s}.step:nth-child(7){animation-delay:3s}.step:nth-child(9){animation-delay:4s}
+.arrow{color:var(--mute)}
+.proj-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+/* certs */
+.cert{text-align:center;border-style:dashed}
+.cert .ic{font-size:30px;margin-bottom:8px}
+.cert p{color:var(--mute);font-size:14px}
+/* resume */
+.resume{display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.resume ul{list-style:none;padding:0;margin:12px 0 0;color:var(--mute)}.resume li{padding:3px 0}.resume li:before{content:"✓ ";color:var(--acc);font-weight:700}
+/* contact */
+.contact{max-width:560px;margin:auto}
+.c-item{display:flex;gap:16px;align-items:center}
+.c-ic{width:48px;height:48px;border-radius:14px;background:var(--accsoft);display:grid;place-items:center;font-size:22px;flex:none}
+.c-item small{color:var(--mute);display:block}.c-item b{font-size:17px}
+.contact .card+.card{margin-top:16px}
+footer{text-align:center;padding:30px 22px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+/* motion */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+@keyframes blink{50%{opacity:0}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes float{50%{transform:translateY(-10px)}}
+@keyframes pulse{50%{box-shadow:0 0 0 12px transparent}}@keyframes lit{0%,20%,100%{opacity:.35}8%{opacity:1;border-color:var(--acc);color:var(--acc)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.step{opacity:1}.bar i{width:var(--w)!important}}
+@media print{nav,#home,#about,#skills,#projects,#certs,#contact,footer{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav-in">
+<a href="#home" class="logo">Sai<span>krishna</span></a>
+<div class="links" id="links">
+<a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#projects">Projects</a><a href="#certs">Certifications</a><a href="#resume">Resume</a><a href="#contact">Contact</a>
+<button class="icon-btn" id="theme" aria-label="Toggle theme">◐</button>
+</div>
+<button class="icon-btn burger" id="burger" aria-label="Menu">☰</button>
+</div></nav>
+
+<section id="home"><div class="wrap hero">
+<div>
+<p class="hi">Hello, I'm</p>
+<h1>Pendyala Saikrishna</h1>
+<div class="role">Aspiring <b id="typed"></b><span class="cur"></span></div>
+<p>B.Tech CSE (AIML) student who turns raw data into clear answers using Python, SQL and Power BI. Currently building machine learning projects for banking.</p>
+<div class="cta"><a class="btn pri" href="#projects">View projects</a><a class="btn sec" href="#contact">Contact me</a></div>
+</div>
+<div class="photo-wrap">
+<div class="ring"></div>
+<div class="photo"><img alt="Pendyala Saikrishna" src="Copilot_20261010_144155.jpg"></div>
+<span class="chip a">Python</span><span class="chip b">SQL</span><span class="chip c">Power BI</span>
+</div>
+</div></section>
+
+<section id="about"><div class="wrap">
+<h2 class="sec-h rv">About me</h2><p class="sec-p rv">A fresher with a clear direction: data science.</p>
+<div class="about">
+<div class="card rv"><p>I'm Pendyala Saikrishna, a B.Tech student in Computer Science and Engineering (AI &amp; ML) at Jayamukhi Institute of Technology.</p>
+<p>I enjoy finding patterns in data, whether that means cleaning a messy table in SQL, building a dashboard in Power BI, or training a model in Python. My final goal is a career as a data scientist.</p>
+<p>I'm looking for internships and entry-level roles where I can learn from real data problems.</p></div>
+<div class="card rv">
+<div class="stat"><span>Degree</span><b>B.Tech</b></div>
+<div class="stat"><span>Branch</span><b>CSE (AIML)</b></div>
+<div class="stat"><span>College</span><b>Jayamukhi Institute of Technology</b></div>
+<div class="stat"><span>Goal</span><b>Data Science</b></div>
+</div></div></div></section>
+
+<section id="skills"><div class="wrap">
+<h2 class="sec-h rv">Skills</h2><p class="sec-p rv">The tools I use to collect, analyse and present data.</p>
+<div class="grid g2">
+<div class="card rv">
+<div class="skill"><div class="skill-top"><span>Python</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+<div class="skill"><div class="skill-top"><span>SQL</span><span>75%</span></div><div class="bar"><i data-w="75"></i></div></div>
+<div class="skill"><div class="skill-top"><span>Data Structures &amp; Algorithms</span><span>70%</span></div><div class="bar"><i data-w="70"></i></div></div>
+</div>
+<div class="card rv">
+<div class="skill"><div class="skill-top"><span>Excel</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+<div class="skill"><div class="skill-top"><span>Power BI</span><span>70%</span></div><div class="bar"><i data-w="70"></i></div></div>
+<div class="skill"><div class="skill-top"><span>Machine Learning</span><span>65%</span></div><div class="bar"><i data-w="65"></i></div></div>
+</div></div></div></section>
+
+<section id="education"><div class="wrap">
+<h2 class="sec-h rv">Education</h2><p class="sec-p rv">Where I'm learning right now.</p>
+<div class="tl rv"><div class="card">
+<h3>B.Tech in Computer Science &amp; Engineering (AI &amp; ML)</h3>
+<p style="color:var(--mute);margin-top:6px">Jayamukhi Institute of Technology</p>
+<span class="tag">Pursuing</span><span class="tag">AI &amp; ML</span><span class="tag">Data Science focus</span>
+</div></div></div></section>
+
+<section id="projects"><div class="wrap">
+<h2 class="sec-h rv">Projects</h2><p class="sec-p rv">Hands-on work that shows how I solve problems with data.</p>
+<div class="card rv">
+<h3>Fraud Detection in Banking Sector using ML</h3>
+<p style="color:var(--mute);margin-top:10px;max-width:70ch">A machine learning system that learns from past banking transactions to flag suspicious activity, helping banks catch fraud early.</p>
+<div class="flow"><span class="step">Data</span><span class="arrow">›</span><span class="step">Clean</span><span class="arrow">›</span><span class="step">Features</span><span class="arrow">›</span><span class="step">Train model</span><span class="arrow">›</span><span class="step">Flag fraud</span></div>
+<span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Data Analysis</span>
+<div class="proj-btns"><a class="btn sec" href="#contact">Ask about this project</a></div>
+</div></div></section>
+
+<section id="certs"><div class="wrap">
+<h2 class="sec-h rv">Certifications</h2><p class="sec-p rv">Add your certificates here as you earn them.</p>
+<div class="grid g3">
+<div class="card cert rv"><div class="ic">🏅</div><h3>Python</h3><p>Add certificate name and issuer</p></div>
+<div class="card cert rv"><div class="ic">📊</div><h3>Power BI / Excel</h3><p>Add certificate name and issuer</p></div>
+<div class="card cert rv"><div class="ic">🗄️</div><h3>SQL</h3><p>Add certificate name and issuer</p></div>
+</div></div></section>
+
+<section id="resume"><div class="wrap">
+<h2 class="sec-h rv">Resume</h2><p class="sec-p rv">A quick summary of my profile.</p>
+<div class="card resume rv">
+<div><h3>Pendyala Saikrishna</h3>
+<ul><li>B.Tech CSE (AIML), Jayamukhi Institute of Technology</li><li>Python, SQL, DSA, Excel, Power BI</li><li>Project: Fraud Detection in Banking using ML</li><li>Goal: Data Science</li></ul></div>
+<button class="btn pri" onclick="window.print()">Save resume as PDF</button>
+</div></div></section>
+
+<section id="contact"><div class="wrap">
+<h2 class="sec-h rv" style="text-align:center">Contact</h2><p class="sec-p rv" style="text-align:center;margin-inline:auto">Reach out for internships, projects or just to say hi.</p>
+<div class="contact">
+<a class="card c-item rv" href="https://wa.me/919492704626" target="_blank" rel="noopener" style="display:flex"><div class="c-ic">💬</div><div><small>WhatsApp</small><b>+91 94927 04626</b></div></a>
+<div class="card c-item rv"><div class="c-ic">✉️</div><div><small>Email</small><b>Add your email</b></div></div>
+<div class="card c-item rv"><div class="c-ic">💼</div><div><small>LinkedIn / GitHub</small><b>Add your links</b></div></div>
+</div></div></section>
+
+<footer>© 2026 Pendyala Saikrishna</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+$('#burger').onclick=()=>$('#links').classList.toggle('open');
+document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>$('#links').classList.remove('open'));
+$('#theme').onclick=()=>{const r=document.documentElement,d=matchMedia('(prefers-color-scheme:dark)').matches;const cur=r.dataset.theme||(d?'dark':'light');r.dataset.theme=cur==='dark'?'light':'dark'};
+// typing
+const roles=['Data Scientist','Data Analyst','ML Engineer'];let ri=0,ci=0,del=false;
+function type(){const w=roles[ri];$('#typed').textContent=w.slice(0,ci);
+if(!del&&ci<w.length){ci++;setTimeout(type,90)}else if(!del){del=true;setTimeout(type,1400)}else if(ci>0){ci--;setTimeout(type,45)}else{del=false;ri=(ri+1)%roles.length;setTimeout(type,300)}}
+type();
+// reveal + bars
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('.bar i').forEach(b=>{b.style.setProperty('--w',b.dataset.w+'%');b.style.width=b.dataset.w+'%'});io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+// active nav
+const secs=[...document.querySelectorAll('section')],ls=[...document.querySelectorAll('.links a')];
+addEventListener('scroll',()=>{let id='home';secs.forEach(s=>{if(scrollY>=s.offsetTop-120)id=s.id});ls.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id))});
+</script>
+</body>
+</html>
